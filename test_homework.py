@@ -1,4 +1,3 @@
-from _ctypes_test import func
 from datetime import time
 from pprint import pprint
 
@@ -8,7 +7,6 @@ def test_dark_theme_by_time():
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
     current_time = time(hour=23)
-    is_dark_theme = None
     start_night = time(hour=22)
     end_night = time(hour=6)
     if end_night <= current_time < start_night:  # если день (включитлельно ли 6 в день?)
@@ -20,7 +18,6 @@ def test_dark_theme_by_time():
 
 
 def test_dark_theme_by_time_and_user_choice():
-
     """
     Протестируйте правильность переключения темной темы на сайте
     в зависимости от времени и выбора пользователя
@@ -31,9 +28,10 @@ def test_dark_theme_by_time_and_user_choice():
 
     current_time = time(hour=16)
     dark_theme_enabled_by_user = True
-    is_dark_theme = None
+
     # TODO переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
+
     def is_check_dark_theme(current_time, dark_theme_enabled_by_user):
         if dark_theme_enabled_by_user is not None:
             return dark_theme_enabled_by_user
@@ -66,7 +64,6 @@ def test_find_suitable_user():
     assert suitable_users == {"name": "Olga", "age": 45}
 
     # TODO найдите всех пользователей младше 20 лет
-    suitable_users = None
     suitable_users1 = []
     for user in users:
         if user['age'] < 20:
@@ -114,9 +111,3 @@ def func_signature(func, *args):
     res = func.__name__.replace("_", " ").title() + ' ' + str(list(args)).replace('\'', '')
     pprint(res)
     return res
-
-
-
-
-
-
